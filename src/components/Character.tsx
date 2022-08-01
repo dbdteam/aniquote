@@ -3,7 +3,7 @@ import Section from "./Section";
 
 export default function Character({ quote }: { quote: Quote }) {
   return (
-    <Section delay={0.1}>
+    <Section delay={"0.1"}>
       <Box
         bg={useColorModeValue("gray.100", "gray.700")}
         boxShadow="md"
