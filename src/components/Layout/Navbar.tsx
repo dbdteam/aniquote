@@ -1,9 +1,16 @@
-import { Container, Box, useColorModeValue, Flex, Link, Heading } from "@chakra-ui/react";
-import NextLink from 'next/link'
-import ThemeToggleButton from "./theme-toggle-button";
-import { GiRollingEnergy } from 'react-icons/gi'
+import {
+  Container,
+  Box,
+  useColorModeValue,
+  Flex,
+  Link,
+  Heading,
+} from "@chakra-ui/react";
+import NextLink from "next/link";
+import { GiRollingEnergy } from "react-icons/gi";
+import ThemeToggleButton from "../ThemeToggleButton";
 
-function Navbar() {
+export default function Navbar() {
   return (
     <Box
       position="fixed"
@@ -15,10 +22,18 @@ function Navbar() {
     >
       <Container display="flex" p={2} maxW="container.md">
         <NextLink href="/">
-          <Link display="flex" align="center">
+          <Link display="flex" textAlign="center">
             <Flex gap={1} align="center">
               <GiRollingEnergy />
-              <Heading as="h2" size="md" letterSpacing={"tighter"} mr={10} cursor="pointer">AniQuote</Heading>
+              <Heading
+                as="h2"
+                size="md"
+                letterSpacing={"tighter"}
+                mr={10}
+                cursor="pointer"
+              >
+                AniQuote
+              </Heading>
             </Flex>
           </Link>
         </NextLink>
@@ -30,12 +45,10 @@ function Navbar() {
             <Link fontWeight={800}>by character</Link>
           </NextLink>
         </Flex>
-        <Box flex={1} align="right">
+        <Box flex={1} textAlign="right">
           <ThemeToggleButton />
         </Box>
       </Container>
     </Box>
   );
 }
-
-export default Navbar;

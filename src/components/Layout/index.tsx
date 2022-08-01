@@ -1,20 +1,16 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import { Box, Container } from "@chakra-ui/react";
-import Navbar from './Navbar.jsx'
-import Footer from './Footer.jsx'
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { ReactNode } from "react";
 
-interface LayoutProps {
-    children: any;
-}
-
-const Layout: NextPage<LayoutProps> = ({ children}) => {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
     <Box as="main" pb={8}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>AniQuote - random quotes just by click</title>
-        <link rel="icon" href="%PUBLIC%/quotes.png"/>
+        <link rel="icon" href="/quotes.png" />
       </Head>
       <Navbar />
       <Container maxW="container.md" pt={14}>
@@ -23,6 +19,4 @@ const Layout: NextPage<LayoutProps> = ({ children}) => {
       <Footer />
     </Box>
   );
-};
-
-export default Layout;
+}
