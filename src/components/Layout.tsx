@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Box, Container } from "@chakra-ui/react";
-import Navbar from './Navbar.js'
-import Footer from './Footer.js'
+import Navbar from './Navbar.jsx'
+import Footer from './Footer.jsx'
 
 interface LayoutProps {
     children: any;
