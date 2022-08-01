@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { GiRollingEnergy } from "react-icons/gi";
-import ThemeToggleButton from "../ThemeToggleButton";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 export default function Navbar() {
   return (
