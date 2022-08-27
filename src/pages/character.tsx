@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { NextPage } from "next";
-import { Input, Button } from "@chakra-ui/react";
-import Layout from "../components/Layout";
+import { Input, Button, FormControl, Box } from "@chakra-ui/react";
 import Character from "../components/Character";
 
 const Characters: NextPage = () => {
@@ -9,31 +8,30 @@ const Characters: NextPage = () => {
   const [value, setValue] = useState("");
 
   const getCharQuote = () => {
-    const url = `https://animechan.vercel.app/api/quotes/character?name=${value}`;
+    const url = `https://animechan.vercel.app/api/quotes/character?name=${value
+      .replace(/\s/g, "")
+      .toLowerCase()}`;
     return fetch(url)
       .then((res) => res.json())
       .then((data) => setQuote(data));
   };
 
-  useEffect(() => {
-    getCharQuote();
-  }, []);
-
   return (
-    <Layout>
-      <form>
+    <Box>
+      <FormControl display="flex">
         <Input
-          placeholder="Enter title name"
+          placeholder="Enter character name"
           onChange={(event) => setValue(event.target.value)}
           my={6}
+          borderRightRadius="0"
         />
-      </form>
+        <Button onClick={getCharQuote} mt={6} borderLeftRadius="0">
+          Search
+        </Button>
+      </FormControl>
       {quote.length > 0 &&
-        quote.map((q) => <Character key={q.anime} quote={q} />)}
-      <Button onClick={getCharQuote} mt={6}>
-        {value ? "Search" : "Change Quotes"}
-      </Button>
-    </Layout>
+        quote.map((q) => <Character key={q.quote} quote={q} />)}
+    </Box>
   );
 };
 

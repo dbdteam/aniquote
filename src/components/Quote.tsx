@@ -15,7 +15,6 @@ export default function Quote({ quote }: { quote: Quote }) {
           pl={6}
           pt={3}
           color={useColorModeValue("teal.500", "teal.300")}
-          fontFamily="Press Start 2P, cursive"
         >
           Anime: {quote.anime}
         </Heading>
@@ -24,11 +23,10 @@ export default function Quote({ quote }: { quote: Quote }) {
           pl={6}
           my={3}
           color={useColorModeValue("teal.500", "teal.300")}
-          fontFamily="Press Start 2P, cursive"
         >
           Character: {quote.character}
         </Heading>
-        <Text px={6} pb={6} fontFamily="Press Start 2P, cursive">
+        <Text px={6} pb={6}>
           &quot;{quote.quote}&quot;
         </Text>
       </Box>
